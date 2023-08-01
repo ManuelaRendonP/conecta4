@@ -10,8 +10,15 @@ body {
 }
 
 .board {
+    margin: 0 auto;
     border-collapse: collapse;
-    margin: 20px auto;
+    width: 500px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .slot {
@@ -22,11 +29,16 @@ body {
     vertical-align: middle;
     font-size: 24px;
     cursor: pointer;
-    border-color: rgb(7, 57, 118);
+    border-color: rgb(0, 0, 0);
+    transition: background-color 0.3s ease;
+}
+
+.empty-slot {
+    background-color: #fff;
 }
 
 [slot="empty"] {
-    background-color: #eee;
+    background-color: #fff;
 }
 
 [slot="redplayer"] {
@@ -55,4 +67,62 @@ body {
 
 .title {
     font-size: 50px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    padding: 7px;
+}
+
+button {
+    margin: 5px;
+}
+
+#restart-game, #reset-scores {
+    min-width: 130px;
+    height: 40px;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    outline: none;
+    border: 1px solid #000;
+    color: #000;
+    background: transparent;
+    z-index: 0;
+    font-family: 'Victor Mono', monospace;
+}
+
+#restart-game:hover:after, #reset-scores:hover:after {
+    top: 0;
+    left: 0;
+}
+
+#restart-game:after, #reset-scores:after {
+    content: "";
+    width: 100%;
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    top: 5px;
+    left: 5px;
+    transition: 0.2s;
+    background-color: #ced4da;
+}
+
+.victory-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #ced4da;
+    font-size: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
 }

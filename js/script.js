@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const board = document.querySelector(".board");
     const slots = document.querySelectorAll(".slot");
+    const restartGameButton = document.getElementById("restart-game");
+    const resetScoresButton = document.getElementById("reset-scores");
 
     let currentPlayer = "redplayer";
     let gameEnded = false;
@@ -83,32 +85,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Function to show a victory message and restart the game
     function showVictoryMessage(winner) {
-        alert(`${winner} wins!`);
+        const winnerName = winner === "redplayer" ? "Red Player" : "Yellow Player";
+        const message = `${winnerName} wins! 🎉`;
 
-        const redplayerScoreElem = document.getElementById("redplayer-score");
-        const yellowplayerScoreElem = document.getElementById("yellowplayer-score");
-        if (winner === "redplayer") {
-            redplayerScore++;
-            redplayerScoreElem.textContent = redplayerScore;
-        } else {
-            yellowplayerScore++;
-            yellowplayerScoreElem.textContent = yellowplayerScore;
-        }
+        // Display a styled message instead of a simple alert
+        const victoryMessage = document.createElement("div");
+        victoryMessage.classList.add("victory-message");
+        victoryMessage.textContent = message;
+
+        document.body.appendChild(victoryMessage);
 
         setTimeout(() => {
+            document.body.removeChild(victoryMessage);
+            incrementScore(winner);
             resetGame();
         }, 2000);
     }
 
+
     // Function to reset the game board
     function resetGame() {
         gameEnded = false;
-        currentPlayer = "redplayer";
+        currentPlayer = currentPlayer === "redplayer" ? "yellowplayer" : "redplayer"; // Alternar jugadores
+        board.removeEventListener("click", handleMove);
+
         for (const slot of slots) {
             slot.setAttribute("status", "empty");
-            slot.textContent = ""; // Clear any content (e.g., "R" or "Y") inside the slot
-            slot.style.backgroundColor = ""; // Clear the background color of the slot
+            slot.removeAttribute("slot");
+            slot.classList.remove("redplayer");
+            slot.classList.remove("yellowplayer");
         }
+        board.addEventListener("click", handleMove);
     }
 
     // Event listener for slot clicks
@@ -118,4 +125,29 @@ document.addEventListener("DOMContentLoaded", function () {
             handleMove(column);
         }
     });
+
+    restartGameButton.addEventListener("click", resetGame);
+    resetScoresButton.addEventListener("click", resetScores);
+
+    function resetScores() {
+        redplayerScore = 0;
+        yellowplayerScore = 0;
+        updateScoreDisplay();
+    }
+
+    function updateScoreDisplay() {
+        const redplayerScoreElem = document.getElementById("redplayer-score");
+        const yellowplayerScoreElem = document.getElementById("yellowplayer-score");
+        redplayerScoreElem.textContent = redplayerScore;
+        yellowplayerScoreElem.textContent = yellowplayerScore;
+    }
+
+    function incrementScore(winner) {
+        if (winner === "redplayer") {
+            redplayerScore++;
+        } else {
+            yellowplayerScore++;
+        }
+        updateScoreDisplay();
+    }
 });
