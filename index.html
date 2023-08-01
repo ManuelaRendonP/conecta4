@@ -3,25 +3,81 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="wdata-columnth=device-wdata-columnth, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>CONECTA 4 by Manuela Rendón</title>
 </head>
 
 <body>
     <div class="players">
-        <div class="player1">
-            Amarillo: <label>0</label>
+        <div class="yellowplayer">
+            Amarillo: <label id="yellowplayer-score">0</label>
         </div>
         <div class="title">CONECTA 4</div>
-        <div class="player2">
-            Rojo: <label>0</label>
+        <div class="redplayer">
+            Rojo: <label id="redplayer-score">0</label>
         </div>
     </div>
-    <div class="board-container">
-        <div class="board" id="board"></div>
-    </div>
+    <table class="board">
+        <tbody>
+            <tr>
+                <td data-column="a" class="slot" status="empty"></td>
+                <td data-column="b" class="slot" status="empty"></td>
+                <td data-column="c" class="slot" status="empty"></td>
+                <td data-column="d" class="slot" status="empty"></td>
+                <td data-column="e" class="slot" status="empty"></td>
+                <td data-column="f" class="slot" status="empty"></td>
+                <td data-column="g" class="slot" status="empty"></td>
+            </tr>
+            <tr>
+                <td data-column="a" class="slot" status="empty"></td>
+                <td data-column="b" class="slot" status="empty"></td>
+                <td data-column="c" class="slot" status="empty"></td>
+                <td data-column="d" class="slot" status="empty"></td>
+                <td data-column="e" class="slot" status="empty"></td>
+                <td data-column="f" class="slot" status="empty"></td>
+                <td data-column="g" class="slot" status="empty"></td>
+            </tr>
+            <tr>
+                <td data-column="a" class="slot" status="empty"></td>
+                <td data-column="b" class="slot" status="empty"></td>
+                <td data-column="c" class="slot" status="empty"></td>
+                <td data-column="d" class="slot" status="empty"></td>
+                <td data-column="e" class="slot" status="empty"></td>
+                <td data-column="f" class="slot" status="empty"></td>
+                <td data-column="g" class="slot" status="empty"></td>
+            </tr>
+            <tr>
+                <td data-column="a" class="slot" status="empty"></td>
+                <td data-column="b" class="slot" status="empty"></td>
+                <td data-column="c" class="slot" status="empty"></td>
+                <td data-column="d" class="slot" status="empty"></td>
+                <td data-column="e" class="slot" status="empty"></td>
+                <td data-column="f" class="slot" status="empty"></td>
+                <td data-column="g" class="slot" status="empty"></td>
+            </tr>
+            <tr>
+                <td data-column="a" class="slot" status="empty"></td>
+                <td data-column="b" class="slot" status="empty"></td>
+                <td data-column="c" class="slot" status="empty"></td>
+                <td data-column="d" class="slot" status="empty"></td>
+                <td data-column="e" class="slot" status="empty"></td>
+                <td data-column="f" class="slot" status="empty"></td>
+                <td data-column="g" class="slot" status="empty"></td>
+            </tr>
+            <tr>
+                <td data-column="a" class="slot" status="empty"></td>
+                <td data-column="b" class="slot" status="empty"></td>
+                <td data-column="c" class="slot" status="empty"></td>
+                <td data-column="d" class="slot" status="empty"></td>
+                <td data-column="e" class="slot" status="empty"></td>
+                <td data-column="f" class="slot" status="empty"></td>
+                <td data-column="g" class="slot" status="empty"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="js/script.js"></script>
 </body>
-<script src="js/script.js"></script>
 
 </html>
