@@ -11,3 +11,6 @@ Crea el juego conecta cuatro. Tienes un ejemplo parecido aquí.
 - Guardar el número partidas ganadas de cada equipo mientras la App no se finaliza.
 - Dos botones para reiniciar la partida en marcha y para resetear el contador de victorias y derrotas.
 - Puedes añadirle todas las funcionalidades extra que consideres.
+
+### RESULTADO FINAL (PÁGINA WEB)
+https://conecta4-manuela-rendon.netlify.app/
